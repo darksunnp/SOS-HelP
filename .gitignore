@@ -21,3 +21,5 @@ package-lock.json
 # Logs and temp files
 *.log
 *.tmp
+
+.md
