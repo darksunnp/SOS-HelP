@@ -60,7 +60,45 @@ function encode(text) {
     return codedWords.join(" / ")
 }
 
+function unitMs(wpm){
+    return 1200/wpm
+}
+
+function toTimeline(text, wpm){
+    const unit = unitMs(wpm);
+    const steps = [];
+    const words = encode(text).split(" / ");
+
+    for (let i = 0; i < words.length; i++) {
+        const letters = words[i].split(" ");
+
+        for (let j=0; j < letters.length; j++) {
+            const symbols = letters[j].split;
+
+            for (let k=0; k < symbols.length; k++){
+                if (symbols[k] === "."){
+                    steps.push({ on: true, ms:unit})
+                }
+                else{
+                    steps.push({ on:true, ms: 3*unit})
+                }
+                // Gap inside a letter, but not after the last symbol
+                if (k< symbols.length -1){
+                    steps.push({ on:false, ms:unit})
+                }
+            }
+            if (j<letters.length-1){
+                steps.push({ on:false, ms:unit*3})
+            }
+        }
+        if (i<words.length-1){
+                steps.push({ on:false, ms:unit*7})
+            }
+    }
+    return steps;
+}
+
 if (typeof module !== "undefined") {
-    module.exports = {MORSE, encode};
+    module.exports = {MORSE, encode, unitMs, toTimeline};
 }
 
