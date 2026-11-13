@@ -1,0 +1,28 @@
+
+body {
+  font-family: system-ui, sans-serif;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px;
+  background: #111;
+  color: #eee;
+}
+
+#warning {
+    color: #ffb347;
+}
+   
+input,button {
+    font-size: 16px;
+    padding: 12px;
+}
+
+#flash {
+    height: 200px;
+    background: black;
+    margin-top: 16px;
+}
+
+#flash.on {
+    background-color: white;
+}
