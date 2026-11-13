@@ -73,7 +73,7 @@ function toTimeline(text, wpm){
         const letters = words[i].split(" ");
 
         for (let j=0; j < letters.length; j++) {
-            const symbols = letters[j].split;
+            const symbols = letters[j];
 
             for (let k=0; k < symbols.length; k++){
                 if (symbols[k] === "."){
