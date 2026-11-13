@@ -5,6 +5,8 @@ const flash = document.getElementById("flash")
 
 const WPM = 8;
 
+let currentRun = 0;
+
 function sleep(ms) {
     return new Promise(function (resolve){
         setTimeout(resolve,ms);
@@ -13,6 +15,8 @@ function sleep(ms) {
 
 async function play() {
     const steps = toTimeline(messageInput.value,WPM);
+    currentRun++;
+    const myRun = currentRun; 
 
     for (const step of steps){
         if (step.on === true){
@@ -23,8 +27,17 @@ async function play() {
         }
 
         await sleep(step.ms);
+        if (myRun !== currentRun){
+            return
+        }
     }
     flash.classList.remove("on")
 }
 
+function stop(){
+    currentRun++;
+    flash.classList.remove("on")
+}
+
 startButton.addEventListener("click", play)
+stopButton.addEventListener("click",stop)
