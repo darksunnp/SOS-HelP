@@ -1,6 +1,6 @@
 // Lookup table
 
-const Morse = {
+const MORSE = {
     A: ".-",
     B: "-...",
     C: "-.-.",
@@ -38,3 +38,29 @@ const Morse = {
     "8": "---..",
     "9": "----.",
 }
+
+function encode(text) {
+    const words = text.toUpperCase().split(" ");
+    const codedWords = [];
+
+    for (const word of words) {
+        const codes = [];
+
+        for (const letter of word) {
+            const code = MORSE[letter];
+
+            if (code !== undefined) {
+                codes.push(code)
+            }
+        }
+        if (codes.length >0){
+            codedWords.push(codes.join(" "))
+        }
+    }
+    return codedWords.join(" / ")
+}
+
+if (typeof module !== "undefined") {
+    module.exports = {MORSE, encode};
+}
+
