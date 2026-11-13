@@ -41,3 +41,7 @@ function stop(){
 
 startButton.addEventListener("click", play)
 stopButton.addEventListener("click",stop)
+
+if("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js");
+}
