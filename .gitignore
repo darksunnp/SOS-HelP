@@ -1,0 +1,23 @@
+# OS junk
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Editor settings
+.vscode/
+.idea/
+*.swp
+
+# Local Claude Code settings (CLAUDE.md itself stays tracked)
+.claude/settings.local.json
+
+# Python cache from running "python -m http.server"
+__pycache__/
+
+# This project has no npm packages, so these should never be committed
+node_modules/
+package-lock.json
+
+# Logs and temp files
+*.log
+*.tmp
