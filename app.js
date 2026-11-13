@@ -1,5 +1,3 @@
-const { toTimeline } = require("./morse");
-
 const messageInput = document.getElementById("message");
 const startButton = document.getElementById("start")
 const stopButton = document.getElementById("stop")
