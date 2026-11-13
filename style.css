@@ -19,10 +19,12 @@ input,button {
 
 #flash {
     height: 200px;
-    background: black;
+    background: #111;
     margin-top: 16px;
 }
 
 #flash.on {
     background-color: white;
 }
+
+
